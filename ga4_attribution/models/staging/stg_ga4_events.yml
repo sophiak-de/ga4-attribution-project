@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_ga4_events
+    description: "Staged GA4 ecommerce events used for attribution modeling."
+
+    columns:
+      - name: event_date
+        description: "GA4 event date."
+
+      - name: event_timestamp
+        description: "Event timestamp in microseconds."
+        tests:
+          - not_null
+
+      - name: event_time
+        description: "Event timestamp converted to a readable UTC timestamp."
+        tests:
+          - not_null
+
+      - name: event_name
+        description: "GA4 event name."
+        tests:
+          - not_null
+
+      - name: user_pseudo_id
+        description: "Anonymous GA4 user identifier used to connect events in a user journey."
+        tests:
+          - not_null
+
+      - name: user_acquisition_source
+        description: "User acquisition source from the GA4 traffic_source record."
+
+      - name: user_acquisition_medium
+        description: "User acquisition medium from the GA4 traffic_source record."
+
+      - name: user_acquisition_campaign
+        description: "User acquisition campaign from the GA4 traffic_source record."
