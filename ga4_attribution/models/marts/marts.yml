@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: mart_first_click_attribution
+    description: "First-click attribution model assigning each purchase to the earliest eligible session before the conversion."
+
+    columns:
+      - name: conversion_id
+        description: "Unique identifier for each purchase conversion."
+        tests:
+          - not_null
+          - unique
+
+      - name: attributed_source
+        description: "Source receiving first-click attribution."
+        tests:
+          - not_null
+
+      - name: attributed_medium
+        description: "Medium receiving first-click attribution."
+        tests:
+          - not_null
+
+  - name: mart_last_click_attribution
+    description: "Last-click attribution model assigning each purchase to the most recent eligible session before the conversion."
+
+    columns:
+      - name: conversion_id
+        description: "Unique identifier for each purchase conversion."
+        tests:
+          - not_null
+          - unique
+
+      - name: attributed_source
+        description: "Source receiving last-click attribution."
+        tests:
+          - not_null
+
+      - name: attributed_medium
+        description: "Medium receiving last-click attribution."
+        tests:
+          - not_null
